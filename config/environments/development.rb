@@ -30,4 +30,7 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   # Raises error for missing translations
+
+  config.serve_static_assets = true
+  config.assets.compile = true
 end
