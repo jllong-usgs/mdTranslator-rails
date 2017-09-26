@@ -5,5 +5,5 @@ stop:
 	docker-compose down
 
 publish:
-	docker build -t sciencebase/md-translator .
-	docker push sciencebase/md-translator
+	docker build -t sciencebase/md-translator:latest .
+	docker push sciencebase/md-translator:latest

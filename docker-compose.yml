@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "8080:8080"
     environment:
       SECRET_KEY_BASE: "75c2a1ee750cc13e93cd29dd946ddda803958dd9cf5174b1d3f0e1cc6f1efee44549a9dacd86cb293d451c2478028c07e868ad753bb3b08dd2f476247a8b05a4"
       RAILS_RELATIVE_URL_ROOT: "/mdTranslator"
