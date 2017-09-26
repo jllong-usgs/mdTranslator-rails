@@ -15,8 +15,7 @@ RUN gem install rails -v 4.2.6
 RUN gem update --system
 RUN gem install rubygems-update -v 2.6.7
 
-COPY update_rubygems ./
-RUN ./update_rubygems --no-ri --no-rdoc
+RUN update_rubygems --no-ri --no-rdoc
 # Put the application in place
 COPY . /app
 COPY Gemfile Gemfile.lock ./ 
