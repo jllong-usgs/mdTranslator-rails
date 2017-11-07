@@ -1,6 +1,5 @@
-FROM ruby:2.4.0
-RUN apt-get update && apt-get install -y \ 
-  nodejs 
+FROM ruby:2.4.2
+RUN apt-get update && apt-get install -y nodejs 
 
 # Add DOI Root Certificate so gem install will work
 RUN mkdir /usr/local/lib/ruby/site_ruby/2.4.0/rubygems/ssl_certs/doi.gov
@@ -8,14 +7,9 @@ COPY DOIRootCA.crt /usr/local/lib/ruby/site_ruby/2.4.0/rubygems/ssl_certs/doi.go
 COPY DOIRootCA.crt /usr/local/share/ca-certificates
 RUN update-ca-certificates
 
-# we can install rails
-RUN gem install rails -v 4.2.6
+# Install rails
+RUN gem install rails
 
-# Update ruby gems so installs from rubygems.org will work
-RUN gem update --system
-RUN gem install rubygems-update -v 2.6.7
-
-RUN update_rubygems --no-ri --no-rdoc
 # Put the application in place
 COPY . /app
 COPY Gemfile Gemfile.lock ./ 
